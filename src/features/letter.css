@@ -1,0 +1,17 @@
+.letter {
+    background: #61dafb;
+    width: 10vh;
+    height: 10vh;
+    line-height: 10vh;
+    text-align: center;
+    font-size: xxx-large;
+    font-family: fantasy;
+}
+
+.word {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px
+}
