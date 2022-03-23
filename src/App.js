@@ -29,7 +29,7 @@ function App({correctWord, dictionary}) {
                 changeEndGamePopupVisibility(true)
                 changeCheckButtonEnabled(false)
                 setPlayerWin(true)
-            } else if  (guesses >= 6) {
+            } else if  (guesses >= 5) {
                 changeEndGamePopupVisibility(true)
                 changeCheckButtonEnabled(false)
                 setPlayerWin(false)
@@ -55,9 +55,7 @@ function App({correctWord, dictionary}) {
     const [checkButtonEnabled, changeCheckButtonEnabled] = useState(true);
     const [playerWin, setPlayerWin] = useState(false)
 
-    function onClick() {
-        changeEndGamePopupVisibility(!endGamePopupVisibility)
-    }
+
     return (
         <div className="App">
             <div>
@@ -81,10 +79,10 @@ function App({correctWord, dictionary}) {
                 </div>
 
             </div>
-            <button onClick={onClick}>Open Modal</button>
+
             <GameOver
             visible={endGamePopupVisibility}
-            attempts={6}
+            attempts={guesses}
             didWin={playerWin}
             correctWord = {correctWord}
             >

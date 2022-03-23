@@ -1,11 +1,13 @@
 import React from 'react';
 import {Popup} from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
+import './letter.css'
 
 
 export const GameOver = ({visible, attempts, didWin, correctWord}) => {
     let message;
-    didWin ? message = `You got it in ${attempts} tries!!!` : message = `You suck, it was ${correctWord}`
+    didWin ? message = `You got ${correctWord} in ${attempts} tries!!!` : message = `You suck, it was ${correctWord}`
+
 
 
 
@@ -16,7 +18,8 @@ export const GameOver = ({visible, attempts, didWin, correctWord}) => {
                 open = {visible}
                 modal={true}
             >
-                {message}
+                <span> {message} </span>
+
             </Popup>
         </div>
     )
