@@ -1,4 +1,4 @@
-#EC237Project
+# EC327Project
 
 DO NOT UPLOAD "node_modules" folder to git <br />
 DO NOT UPLOAD "package-lock.json" to git
