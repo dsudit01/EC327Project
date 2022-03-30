@@ -1,6 +1,6 @@
 export const letterStatusCodes = {
     empty: 'white',
-    wrong: 'grey',
+    wrong: 'gray',
     almost: 'yellow',
     correct: 'green'
 }

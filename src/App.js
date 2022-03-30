@@ -59,6 +59,9 @@ function App({correctWord, dictionary}) {
     return (
         <div className="App">
             <div>
+                Wordle App
+            </div>
+            <div>
                 <ListOfWords words={words.wordArray} correctWord={correctWord}>
 
                 </ListOfWords>
