@@ -2,6 +2,7 @@ import './letter.css'
 import {Letter} from "./letter";
 import {letterStatusCodes} from "./constants";
 import {useState} from "react";
+import {updateKeyboard} from "./keyboard";
 
 export const Word = ({word, correctWord}) => {
     const [guessLetterCounts, setGuessCounts] = useState({});
@@ -21,7 +22,6 @@ export const Word = ({word, correctWord}) => {
             correctLetterCounts[correctWord[i]] = 1;
         }
     }
-    console.log(correctLetterCounts)
 
 
 
@@ -38,25 +38,49 @@ export const Word = ({word, correctWord}) => {
     //     return letterStatusCodes["wrong"];
     // }
 
+    //Does not work if double letter in guess is wrong before correct
     function setStatus(letter, correctWord, index, guess) {
         if (!letter) {
             return letterStatusCodes["empty"];
         } else if (letter === correctWord[index]) {
+            updateKeyboard(letter, letterStatusCodes["correct"]);
             return letterStatusCodes["correct"];
         } else if (correctWord.includes(letter)) {
-            let count = 0;
+            let preCount = 0;
+            let postCount = 0;
             for (let i = 0; i<index; i++) {
                 if (guess[i] === letter) {
-                    count++;
+                    preCount++;
+                }
+            }
+            for (let j = index+1; j<guess.length; j++) {
+                if (guess[j] === letter) {
+                    postCount++;
                 }
             }
 
-            if (correctLetterCounts[letter] <= count) {
+
+            if (correctLetterCounts[letter] <= preCount) {
+                updateKeyboard(letter, letterStatusCodes["wrong"]);
                 return letterStatusCodes["wrong"];
             }
 
+
+            // else if (correctLetterCounts[letter] <= postCount) {
+            //     updateKeyboard(letter, letterStatusCodes["wrong"]);
+            //     return letterStatusCodes["wrong"];
+            // }
+
+            // if (correctLetterCounts[letter] <= postCount) {
+            //     updateKeyboard(letter, letterStatusCodes["wrong"]);
+            //     return letterStatusCodes["wrong"];
+            // }
+
+
+            updateKeyboard(letter, letterStatusCodes["almost"]);
             return letterStatusCodes["almost"];
         }
+        updateKeyboard(letter, letterStatusCodes["wrong"]);
         return letterStatusCodes["wrong"];
 
     }

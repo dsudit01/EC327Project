@@ -3,6 +3,7 @@ import './App.css';
 import {ListOfWords} from "./features/listofWords";
 import {useState} from "react";
 import {GameOver} from "./features/gameOver";
+import {Keyboard} from "./features/keyboard";
 
 
 
@@ -11,21 +12,24 @@ function App({correctWord, dictionary}) {
         wordArray: []
     });
     const [guesses, updateGuesses] = useState(0);
-    let currentGuess = '';
+
+    function getGuess() {
+        return document.getElementById('userInput').value;
+    }
 
 
     function onCheck() {
-        console.log(currentGuess)
-        if (!currentGuess || !(dictionary.includes(currentGuess))) {
+        let guess = getGuess();
+        if (!guess || !(dictionary.includes(guess.toLowerCase()))) {
             alert('Not a valid word')
-        } else if (currentGuess.length < 5) {
+        } else if (guess.length < 5) {
             alert('Too short')
         } else {
             updateGuesses(guesses + 1)
             updateWords(prevState => ({
-                wordArray: [...prevState.wordArray, currentGuess]
+                wordArray: [...prevState.wordArray, guess]
             }))
-            if (currentGuess.toUpperCase() === correctWord.toUpperCase()) {
+            if (guess.toUpperCase() === correctWord.toUpperCase()) {
                 changeEndGamePopupVisibility(true)
                 changeCheckButtonEnabled(false)
                 setPlayerWin(true)
@@ -36,14 +40,14 @@ function App({correctWord, dictionary}) {
             }
             document.getElementById('userInput').value = '';
             document.getElementById('userInput').focus()
-
+            console.log(words)
 
         }
     }
 
-    function onInputChange(event) {
-        currentGuess = event.target.value;
-    }
+    // function onInputChange(event) {
+    //     currentGuess = event.target.value;
+    // }
 
     function onKeyDown(event) {
         if (event.key === 'Enter') {
@@ -54,6 +58,23 @@ function App({correctWord, dictionary}) {
     const [endGamePopupVisibility, changeEndGamePopupVisibility] = useState(false);
     const [checkButtonEnabled, changeCheckButtonEnabled] = useState(true);
     const [playerWin, setPlayerWin] = useState(false)
+
+    function onVirtualKeyboardClick (key) {
+        console.log(key)
+        let currentInput = document.getElementById('userInput').value;
+        let currentLength = currentInput.length;
+        if (key === 'ENTER') {
+            onCheck();
+        } else if (key === 'DEL') {
+            document.getElementById('userInput').value = currentInput.substr(0,currentLength-1);
+        } else {
+            if (currentLength < 5){
+                document.getElementById('userInput').value = document.getElementById('userInput').value + key;
+            }
+
+        }
+
+    }
 
 
     return (
@@ -68,15 +89,15 @@ function App({correctWord, dictionary}) {
 
                 <div>
                     <input
+                        type="text"
                         disabled={!checkButtonEnabled}
                         id='userInput'
-                        size='lg'
-                        onChange={onInputChange}
+                        size='large'
                         maxLength={5}
                         onKeyDown={onKeyDown}
                     >
                     </input>
-                    <button onClick={onCheck}>
+                    <button className="check" onClick={onCheck}>
                         Check
                     </button>
                 </div>
@@ -91,7 +112,11 @@ function App({correctWord, dictionary}) {
             >
 
             </GameOver>
+            <Keyboard
+                changeInputFunction={onVirtualKeyboardClick}>
+            </Keyboard>
         </div>
+
     );
 }
 
