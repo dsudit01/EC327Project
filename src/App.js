@@ -8,6 +8,7 @@ import {Keyboard} from "./features/keyboard";
 
 
 function App({correctWord, dictionary}) {
+    //words and guesses keep track of all the users guesses and the amount of tries they have had
     const [words, updateWords] = useState({
         wordArray: []
     });
@@ -17,7 +18,10 @@ function App({correctWord, dictionary}) {
         return document.getElementById('userInput').value;
     }
 
-
+    //Checks the user's guess to see if it is a valid guess
+    //If the guess is invalid, then an error message will pop up
+    //If it is valid, it will add the word to the list of guesses and display on the screen
+    //If the guess is correct, then the gameOver popup will occur
     function onCheck() {
         let guess = getGuess();
         if (!guess || !(dictionary.includes(guess.toLowerCase()))) {
@@ -38,17 +42,13 @@ function App({correctWord, dictionary}) {
                 changeCheckButtonEnabled(false)
                 setPlayerWin(false)
             }
+            //Set the guess input box back to '' and focus the cursor on the input box
             document.getElementById('userInput').value = '';
             document.getElementById('userInput').focus()
-            console.log(words)
-
         }
     }
 
-    // function onInputChange(event) {
-    //     currentGuess = event.target.value;
-    // }
-
+    //'Enter' clicked is the same as clicking the check box
     function onKeyDown(event) {
         if (event.key === 'Enter') {
             onCheck()
@@ -59,8 +59,8 @@ function App({correctWord, dictionary}) {
     const [checkButtonEnabled, changeCheckButtonEnabled] = useState(true);
     const [playerWin, setPlayerWin] = useState(false)
 
+    //Allows the virtual keyboard on the screen to be used to type as well
     function onVirtualKeyboardClick (key) {
-        console.log(key)
         let currentInput = document.getElementById('userInput').value;
         let currentLength = currentInput.length;
         if (key === 'ENTER') {

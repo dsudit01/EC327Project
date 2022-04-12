@@ -1,5 +1,6 @@
 import './keyboard.css'
 
+//updateKeyboard goes through each letter on the keyboard and marks it with its appropriate status if it matches the letter from the user's guess
 export function updateKeyboard(letter, statusColor) {
     for (let key of document.getElementsByClassName("keyboard-button")) {
         if (key.textContent.toUpperCase() === letter) {
@@ -13,7 +14,7 @@ export function updateKeyboard(letter, statusColor) {
 }
 
 
-
+//Returns a keyboard of buttons that can be clicked to type out a guess
 export const Keyboard = ({changeInputFunction}) => {
 
     return (

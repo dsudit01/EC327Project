@@ -5,8 +5,9 @@ import {useState} from "react";
 import {updateKeyboard} from "./keyboard";
 
 export const Word = ({word, correctWord}) => {
-    const [guessLetterCounts, setGuessCounts] = useState({});
+   // const [guessLetterCounts, setGuessCounts] = useState({});
 
+    //If no word there don't return anything
     if (!word) {
         return ('')
     }
@@ -24,21 +25,15 @@ export const Word = ({word, correctWord}) => {
     }
 
 
-
-
-    //////////// Old Set Status doesn't work for double letters
-    // function setStatus(letter, correctWord, index) {
-    //     if (!letter) {
-    //         return letterStatusCodes["empty"];
-    //     } else if (letter === correctWord[index]) {
-    //         return letterStatusCodes["correct"];
-    //     } else if (correctWord.includes(letter)) {
-    //         return letterStatusCodes["almost"];
-    //     }
-    //     return letterStatusCodes["wrong"];
-    // }
-
     //Does not work if double letter in guess is wrong before correct
+
+    //setStatus returns the color of the letter based on its correctness in the correct word
+    //If there is no letter present, return 'empty'
+    //If the letter is not in the correct word, return 'wrong'
+    //If a letter is in the word and not in the correct spot, return 'almost'
+    //If a letter is in the word and in the correct spot, return 'correct'
+    //leterstatuscodes are found in constants.js
+
     function setStatus(letter, correctWord, index, guess) {
         if (!letter) {
             return letterStatusCodes["empty"];
@@ -88,6 +83,7 @@ export const Word = ({word, correctWord}) => {
 
 
     return (
+        //returns five letters that make up the word and pass the letter and status through to each Letter const
         <div class='word'>
             <Letter
                 letter={letters[0]}

@@ -1,5 +1,8 @@
 import {Word} from "./word";
 
+//Returns a list of the 6 words that the user has guessed
+//This takes in the correct word as well as the list of words that have been guessed as inputs
+//Each <Word> will then display each word on a separate line with each letter and their appropriate status which are set in "word.js"
 export const ListOfWords = ({words, correctWord}) => {
     return (
         <div>
