@@ -34,10 +34,14 @@ function App({correctWord, dictionary}) {
                 wordArray: [...prevState.wordArray, guess]
             }))
             if (guess.toUpperCase() === correctWord.toUpperCase()) {
+                document.getElementById("checkButton").style.visibility="hidden";
+                document.getElementById("userInput").style.visibility="hidden";
                 changeEndGamePopupVisibility(true)
                 changeCheckButtonEnabled(false)
                 setPlayerWin(true)
             } else if  (guesses >= 5) {
+                document.getElementById("checkButton").style.visibility="hidden";
+                document.getElementById("userInput").style.visibility="hidden";
                 changeEndGamePopupVisibility(true)
                 changeCheckButtonEnabled(false)
                 setPlayerWin(false)
@@ -79,7 +83,7 @@ function App({correctWord, dictionary}) {
 
     return (
         <div className="App">
-            <div>
+            <div className="Title">
                 Wordle App
             </div>
             <div>
@@ -97,7 +101,7 @@ function App({correctWord, dictionary}) {
                         onKeyDown={onKeyDown}
                     >
                     </input>
-                    <button className="check" onClick={onCheck}>
+                    <button className="check" onClick={onCheck} id="checkButton">
                         Check
                     </button>
                 </div>
