@@ -4,10 +4,15 @@ import {ListOfWords} from "./features/listofWords";
 import {useState} from "react";
 import {GameOver} from "./features/gameOver";
 import {Keyboard} from "./features/keyboard";
-
+import Confetti from 'react-confetti'
+import {useWindowSize} from "react-use";
 
 
 function App({correctWord, dictionary}) {
+    //For Confetti
+    const {width, height} = useWindowSize();
+
+
     //words and guesses keep track of all the users guesses and the amount of tries they have had
     const [words, updateWords] = useState({
         wordArray: []
@@ -91,7 +96,7 @@ function App({correctWord, dictionary}) {
 
                 </ListOfWords>
 
-                <div>
+                <div className="userInput">
                     <input
                         type="text"
                         disabled={!checkButtonEnabled}
@@ -119,6 +124,15 @@ function App({correctWord, dictionary}) {
             <Keyboard
                 changeInputFunction={onVirtualKeyboardClick}>
             </Keyboard>
+
+            <Confetti
+             width={width}
+             height={height}
+             numberOfPieces={500}
+             run={playerWin}
+            >
+            </Confetti>
+
         </div>
 
     );

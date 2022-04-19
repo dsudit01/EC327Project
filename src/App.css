@@ -40,3 +40,10 @@
 .Title {
   font-size: 10vh;
 }
+
+.userInput {
+  position: absolute;
+  bottom: 18vh;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}

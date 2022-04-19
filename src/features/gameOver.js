@@ -9,14 +9,17 @@ export const GameOver = ({visible, attempts, didWin, correctWord}) => {
     //didWin is a flag that marks if the user has won the game or not
     didWin ? message = `You got ${correctWord} in ${attempts} tries!!!` : message = `You suck, it was ${correctWord}`
 
-
+    const lookUpLink = `https://www.dictionary.com/browse/${correctWord}`;
     return (
         <div>
             <Popup
                 open = {visible}
                 modal={true}
             >
-                <span> {message} </span>
+                <div className='gameOver'>
+                    <p><span> {message} </span></p>
+                    <p><a href={lookUpLink} target="_blank"> Find the definition here! </a></p>
+                </div>
 
             </Popup>
         </div>
