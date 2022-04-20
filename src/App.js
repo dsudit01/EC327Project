@@ -8,6 +8,7 @@ import Confetti from 'react-confetti'
 import {useWindowSize} from "react-use";
 
 
+
 function App({correctWord, dictionary}) {
     //For Confetti
     const {width, height} = useWindowSize();
@@ -92,9 +93,7 @@ function App({correctWord, dictionary}) {
                 Wordle App
             </div>
             <div>
-                <ListOfWords words={words.wordArray} correctWord={correctWord}>
-
-                </ListOfWords>
+                <ListOfWords words={words.wordArray} correctWord={correctWord}/>
 
                 <div className="userInput">
                     <input
@@ -118,20 +117,16 @@ function App({correctWord, dictionary}) {
             attempts={guesses}
             didWin={playerWin}
             correctWord = {correctWord}
-            >
-
-            </GameOver>
+            />
             <Keyboard
-                changeInputFunction={onVirtualKeyboardClick}>
-            </Keyboard>
-
+                changeInputFunction={onVirtualKeyboardClick}
+            />
             <Confetti
              width={width}
              height={height}
              numberOfPieces={500}
              run={playerWin}
-            >
-            </Confetti>
+            />
 
         </div>
 
