@@ -5,7 +5,8 @@
     line-height: 10vh;
     text-align: center;
     font-size: xxx-large;
-    font-family: fantasy;
+    /*font-family: fantasy;*/
+    font-family: monospace;
     border-radius: 20px;
 }
 
