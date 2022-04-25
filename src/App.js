@@ -6,6 +6,8 @@ import {GameOver} from "./features/gameOver";
 import {Keyboard} from "./features/keyboard";
 import Confetti from 'react-confetti'
 import {useWindowSize} from "react-use";
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -30,10 +32,11 @@ function App({correctWord, dictionary}) {
     //If the guess is correct, then the gameOver popup will occur
     function onCheck() {
         let guess = getGuess();
-        if (!guess || !(dictionary.includes(guess.toLowerCase()))) {
-            alert('Not a valid word')
-        } else if (guess.length < 5) {
-            alert('Too short')
+        if (guess.length < 5) {
+            toast.error(`"${guess}" is too short of a word (${guess.length} letters)`)
+            // alert('Not a valid word')
+        } else if (!guess || !(dictionary.includes(guess.toLowerCase()))) {
+            toast.error(`"${guess}" is not a valid word`)
         } else {
             updateGuesses(guesses + 1)
             updateWords(prevState => ({
@@ -126,6 +129,13 @@ function App({correctWord, dictionary}) {
              height={height}
              numberOfPieces={500}
              run={playerWin}
+            />
+            <ToastContainer
+                position="top-center"
+                draggable
+                pauseOnHover
+                theme="light"
+                newestOnTop={true}
             />
 
         </div>
