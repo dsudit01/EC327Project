@@ -33,7 +33,7 @@ function App({correctWord, dictionary}) {
     function onCheck() {
         let guess = getGuess();
         if (guess.length < 5) {
-            toast.error(`"${guess}" is too short of a word (${guess.length} letters)`)
+            toast.error(`"${guess}" is too short of a word`)
             // alert('Not a valid word')
         } else if (!guess || !(dictionary.includes(guess.toLowerCase()))) {
             toast.error(`"${guess}" is not a valid word`)
