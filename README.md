@@ -1,8 +1,3 @@
-######For our group only, will be deleted later:
-DO NOT UPLOAD "node_modules" folder to git <br />
-DO NOT UPLOAD "package-lock.json" to git
-
-
 # EC327Project
 This web application is a version of Wordle owned by the New York Times. A user has 6 chances to guess a five letter mystery word. For each guess, each letter in the guess has a status that related to its correctness:
 1. If the letter is not in the word, it shows up gray
