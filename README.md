@@ -4,7 +4,7 @@ This web application is a version of Wordle owned by the New York Times. A user 
 2. If the letter is in the word, but in the wrong location, it shows up yellow
 3. If the letter is in the word AND in the correct location, it shows up green
 
-#### Example:
+## Example:
 If the correct word is SNAKE and the user enters SANDY as the guess:
 
 
@@ -22,7 +22,7 @@ If the correct word is SNAKE and the user enters SANDY as the guess:
 How to get nodejs/npm --> [On Ubuntu](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/)
 
 
-### HOW TO START APPLICATION:
+### How to Start Application
 1. Clone the repository on your own device
 ```shell
 git clone https://github.com/dsudit01/EC327Project.git
@@ -43,6 +43,6 @@ npm start
 http://localhost:3000/
 ``` 
 
-### Optional
+## Optional
 1. Install WebStorm editor to add changes to the code in a user-friendly UI that understand javascript code language
 
