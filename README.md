@@ -49,8 +49,8 @@ http://localhost:3000/
 1. Install WebStorm editor to add changes to the code in a user-friendly UI that understand javascript code language
 
 ## Credit
-David Sudit (Project Lead) - dsudit
-Jonas Escobar (Specification Lead) - jesco
-Ryan Duffy (Interface Lead) - duffyr
-Yixiu Zhu (Documentation Lead) - yixiuzhu
-Mariah Mansoor (Technical Lead) - mmansoor
+David Sudit (Project Lead) 
+Jonas Escobar (Specification Lead) 
+Ryan Duffy (Interface Lead) 
+Yixiu Zhu (Documentation Lead) 
+Mariah Mansoor (Technical Lead) 
