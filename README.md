@@ -14,7 +14,9 @@ If the correct word is SNAKE and the user enters SANDY as the guess:
 2. The 'A' and 'N' are in the word but in the wrong spot
 3. The 'S' is in the correct space 
 
+## Software Architecture Demo:
 
+![example](./public/Architecture.png)
 
 ## How To Run Application
 
