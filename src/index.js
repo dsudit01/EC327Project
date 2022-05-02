@@ -13,7 +13,7 @@ console.log(correctWord)
 //Renders App with the correct word and dictionary passed into the app
 ReactDOM.render(
   <React.StrictMode>
-    <App correctWord="ROBOT" dictionary={possibleWords}/>
+    <App correctWord={correctWord} dictionary={possibleWords}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

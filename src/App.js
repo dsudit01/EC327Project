@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {ListOfWords} from "./features/listofWords";
 import {useState} from "react";
@@ -93,7 +92,7 @@ function App({correctWord, dictionary}) {
     return (
         <div className="App">
             <div className="Title">
-                Wordle App
+                Phrasle App
             </div>
             <div>
                 <ListOfWords words={words.wordArray} correctWord={correctWord}/>

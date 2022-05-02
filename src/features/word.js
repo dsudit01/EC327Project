@@ -1,7 +1,6 @@
 import './letter.css'
 import {Letter} from "./letter";
 import {letterStatusCodes} from "./constants";
-import {useState} from "react";
 import {updateKeyboard} from "./keyboard";
 
 export const Word = ({word, correctWord}) => {
@@ -24,8 +23,6 @@ export const Word = ({word, correctWord}) => {
         }
     }
 
-
-    //Does not work if double letter in guess is wrong before correct
 
     //setStatus returns the color of the letter based on its correctness in the correct word
     //If there is no letter present, return 'empty'
