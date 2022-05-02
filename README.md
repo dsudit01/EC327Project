@@ -4,7 +4,7 @@ This web application is a version of Wordle owned by the New York Times. A user 
 2. If the letter is in the word, but in the wrong location, it shows up yellow
 3. If the letter is in the word AND in the correct location, it shows up green
 
-## Example:
+## Example
 If the correct word is SNAKE and the user enters SANDY as the guess:
 
 
@@ -14,7 +14,9 @@ If the correct word is SNAKE and the user enters SANDY as the guess:
 2. The 'A' and 'N' are in the word but in the wrong spot
 3. The 'S' is in the correct space 
 
+## Software Architecture Demo:
 
+![example](./public/Architecture.png)
 
 ## How To Run Application
 
@@ -46,3 +48,9 @@ http://localhost:3000/
 ## Optional
 1. Install WebStorm editor to add changes to the code in a user-friendly UI that understand javascript code language
 
+## Credit
+David Sudit (Project Lead) 
+Jonas Escobar (Specification Lead) 
+Ryan Duffy (Interface Lead) 
+Yixiu Zhu (Documentation Lead) 
+Mariah Mansoor (Technical Lead) 
